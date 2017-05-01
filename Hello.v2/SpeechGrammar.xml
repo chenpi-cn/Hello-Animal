@@ -1,0 +1,275 @@
+﻿<grammar version="1.0" xml:lang="en-US" root="rootRule" tag-format="semantics/1.0-literals" xmlns="http://www.w3.org/2001/06/grammar">
+  <rule id="rootRule">
+    <one-of>
+      <item>
+        <tag>CAT</tag>
+        <one-of>
+          <item>cat</item>
+        </one-of>
+      </item>
+      
+    <item>
+        <tag>DOG</tag>
+        <one-of>
+          <item>dog</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>FOX</tag>
+        <one-of>
+          <item>fox</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>HORSE</tag>
+        <one-of>
+          <item>horse</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>LION</tag>
+        <one-of>
+          <item>lion</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>MONKEY</tag>
+        <one-of>
+          <item>monkey</item>
+          <item>monkeys</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>PANDA</tag>
+        <one-of>
+          <item>panda</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>CAMEL</tag>
+        <one-of>
+          <item>camel</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>CROCODILE</tag>
+        <one-of>
+          <item>crocodile</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>ELEPHANT</tag>
+        <one-of>
+          <item>elephant</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>GIRAFFE</tag>
+        <one-of>
+          <item>giraffe</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>GORILLA</tag>
+        <one-of>
+          <item>gorilla</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>SNAKE</tag>
+        <one-of>
+          <item>snake</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>ZEBRA</tag>
+        <one-of>
+          <item>zebra</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>CHIMPANZEE</tag>
+        <one-of>
+          <item>chimpanzee</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>EMU</tag>
+        <one-of>
+          <item>emu</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>HEDGEHOG</tag>
+        <one-of>
+          <item>hedgehog</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>LEMUR</tag>
+        <one-of>
+          <item>lemur</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>LEOPARD</tag>
+        <one-of>
+          <item>leopard</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>OTTER</tag>
+        <one-of>
+          <item>otter</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>TOUCAN</tag>
+        <one-of>
+          <item>toucan</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>TURTLE</tag>
+        <one-of>
+          <item>turtle</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>START</tag>
+        <one-of>
+          <item>start</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>ONE</tag>
+        <one-of>
+          <item>one</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>TWO</tag>
+        <one-of>
+          <item>two</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>THREE</tag>
+        <one-of>
+          <item>three</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>FOUR</tag>
+        <one-of>
+          <item>four</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>FIVE</tag>
+        <one-of>
+          <item>five</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>SIX</tag>
+        <one-of>
+          <item>six</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>SEVEN</tag>
+        <one-of>
+          <item>seven</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>EIGHT</tag>
+        <one-of>
+          <item>eight</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>NINE</tag>
+        <one-of>
+          <item>nine</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>START</tag>
+        <one-of>
+          <item>start</item>
+        </one-of>
+      </item>
+    
+    
+    <item>
+        <tag>PAUSE</tag>
+        <one-of>
+          <item>pause</item>
+        </one-of>
+      </item>
+    
+    <item>
+        <tag>RESUME</tag>
+        <one-of>
+          <item>resume</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>CREDITS</tag>
+        <one-of>
+          <item>credit</item>
+          <item>credits</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>HELP</tag>
+        <one-of>
+          <item>help</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>CLOSE</tag>
+        <one-of>
+          <item>close</item>
+        </one-of>
+      </item>
+    
+    </one-of>
+  </rule>
+</grammar>

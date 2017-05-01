@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62BA84DB-D5C0-4A2E-B339-B503C911F46B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Hello.v2</RootNamespace>
+    <AssemblyName>Hello.v2</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.8\Assemblies\Microsoft.Kinect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Speech\11.0.0.0__31bf3856ad364e35\Microsoft.Speech.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Soundtrack\Fretless.mp3.sfk" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Soundtrack\Ave Marimba.mp3" />
+    <Content Include="Soundtrack\Casa Bossa Nova.mp3" />
+    <Content Include="Soundtrack\Doobly Doo.mp3" />
+    <Content Include="Soundtrack\Fife and Drum.mp3" />
+    <Content Include="Soundtrack\Fretless.mp3" />
+    <Content Include="Soundtrack\Galway.mp3" />
+    <Content Include="Soundtrack\Happy Happy Game Show.mp3" />
+    <Content Include="Soundtrack\Kings of Tara.mp3" />
+    <Content Include="Soundtrack\Lobby Time.mp3" />
+    <Content Include="Soundtrack\Quirky Dog.mp3" />
+    <Content Include="Soundtrack\Rainbows.mp3" />
+    <Content Include="Soundtrack\Secret of Tiki Island.mp3" />
+    <Content Include="Soundtrack\Tech Live.mp3" />
+    <Resource Include="SpeechGrammar.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Resource Include="Icon\128.ico" />
+    <Resource Include="Icon\32.ico" />
+    <Resource Include="Icon\48.ico" />
+    <Resource Include="Icon\64.ico" />
+    <Resource Include="Icon\apple-touch-icon-114x114.png" />
+    <Resource Include="Icon\apple-touch-icon-120x120.png" />
+    <Resource Include="Icon\apple-touch-icon-144x144.png" />
+    <Resource Include="Icon\apple-touch-icon-152x152.png" />
+    <Resource Include="Icon\apple-touch-icon-180x180.png" />
+    <Resource Include="Icon\apple-touch-icon-57x57.png" />
+    <Resource Include="Icon\apple-touch-icon-72x72.png" />
+    <Resource Include="Icon\apple-touch-icon-76x76.png" />
+    <Resource Include="Icon\apple-touch-icon.png" />
+    <Resource Include="Images\1\Cat.jpg" />
+    <Resource Include="Images\1\Dog.jpg" />
+    <Resource Include="Images\1\Fox.jpg" />
+    <Resource Include="Images\1\Horse.jpg" />
+    <Resource Include="Images\1\Lion.jpg" />
+    <Resource Include="Images\1\Monkey.jpg" />
+    <Resource Include="Images\1\panda.jpg" />
+    <Resource Include="Images\2\Camel.jpg" />
+    <Resource Include="Images\2\Crocodile.jpg" />
+    <Resource Include="Images\2\Elephant.jpg" />
+    <Resource Include="Images\2\Giraffe.jpg" />
+    <Resource Include="Images\2\Gorilla.jpg" />
+    <Resource Include="Images\2\Snake.jpg" />
+    <Resource Include="Images\2\Zebra.jpg" />
+    <Resource Include="Images\3\Chimpanzee.jpg" />
+    <Resource Include="Images\3\Emu.jpg" />
+    <Resource Include="Images\3\Hedgehog.jpg" />
+    <Resource Include="Images\3\Lemur.jpg" />
+    <Resource Include="Images\3\Leopard.jpg" />
+    <Resource Include="Images\3\Otter.jpg" />
+    <Resource Include="Images\3\Toucan.jpg" />
+    <Resource Include="Images\3\Turtle.jpg" />
+    <Resource Include="Images\4\cat.png" />
+    <Resource Include="Images\4\dog.png" />
+    <Resource Include="Images\4\fox.png" />
+    <Resource Include="Images\4\horse.png" />
+    <Resource Include="Images\4\lion.png" />
+    <Resource Include="Images\4\monkey.png" />
+    <Resource Include="Images\4\panda.png" />
+    <Resource Include="Images\5\camel.png" />
+    <Resource Include="Images\5\crocodile.png" />
+    <Resource Include="Images\5\elephant.png" />
+    <Resource Include="Images\5\giraffe.png" />
+    <Resource Include="Images\5\gorilla.png" />
+    <Resource Include="Images\5\snake.png" />
+    <Resource Include="Images\5\zebra.png" />
+    <Resource Include="Images\6\chimpanzee.png" />
+    <Resource Include="Images\6\emu.png" />
+    <Resource Include="Images\6\hedgehog.png" />
+    <Resource Include="Images\6\lemur.png" />
+    <Resource Include="Images\6\leopard.png" />
+    <Resource Include="Images\6\otter.png" />
+    <Resource Include="Images\6\toucan.png" />
+    <Resource Include="Images\6\turtle.png" />
+    <Resource Include="Images\7\cat.png" />
+    <Resource Include="Images\7\dog.png" />
+    <Resource Include="Images\7\fox.png" />
+    <Resource Include="Images\7\horse.png" />
+    <Resource Include="Images\7\lion.png" />
+    <Resource Include="Images\7\monkey.png" />
+    <Resource Include="Images\7\panda.png" />
+    <Resource Include="Images\8\camel.png" />
+    <Resource Include="Images\8\crocodile.png" />
+    <Resource Include="Images\8\elephant.png" />
+    <Resource Include="Images\8\giraffe.png" />
+    <Resource Include="Images\8\gorilla.png" />
+    <Resource Include="Images\8\snake.png" />
+    <Resource Include="Images\8\zebra.png" />
+    <Resource Include="Images\9\chimpanzee.png" />
+    <Resource Include="Images\9\emu.png" />
+    <Resource Include="Images\9\hedgehog.png" />
+    <Resource Include="Images\9\lemur.png" />
+    <Resource Include="Images\9\leopard.png" />
+    <Resource Include="Images\9\otter.png" />
+    <Resource Include="Images\9\toucan.png" />
+    <Resource Include="Images\9\turtle.png" />
+    <Resource Include="Images\credit.jpg" />
+    <Resource Include="Images\credit.png" />
+    <Resource Include="Images\Mainmenu.jpg" />
+    <Resource Include="Images\Mainmenu.png" />
+    <Resource Include="Images\menu_pause.png" />
+    <Resource Include="Images\pause.png" />
+    <Resource Include="Images\score.jpg" />
+    <Resource Include="Images\score.png" />
+    <Resource Include="Images\score1.jpg" />
+    <Resource Include="Images\score1.png" />
+    <Resource Include="Images\score2.jpg" />
+    <Resource Include="Images\score2.png" />
+    <Resource Include="Images\score3.jpg" />
+    <Resource Include="Images\score3.png" />
+    <Resource Include="Images\scorebackground.jpg" />
+    <Resource Include="Images\scorebackground.png" />
+    <Resource Include="Images\stage.jpg" />
+    <Resource Include="Images\stage.png" />
+    <Resource Include="Images\star.png" />
+    <Resource Include="Images\star1.png" />
+    <Resource Include="Images\star2.png" />
+    <Resource Include="Images\star3.png" />
+    <Content Include="play.mp3" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
