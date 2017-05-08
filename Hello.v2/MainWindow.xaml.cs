@@ -1,27 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Microsoft.Kinect;
 using Microsoft.Speech.AudioFormat;
 using Microsoft.Speech.Recognition;
 
 namespace Hello.v2
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         MediaPlayer mplayer = new MediaPlayer();
@@ -39,6 +30,7 @@ namespace Hello.v2
         private KinectSensor sensor;
         private List<Span> recognitionSpans;
         private SpeechRecognitionEngine speechEngine;
+        
         private const string MediumGreyBrushKey = "MediumGreyBrush";
         private int seed, score = 0;
 
@@ -49,8 +41,11 @@ namespace Hello.v2
                 string value;
                 recognizer.AdditionalInfo.TryGetValue("Kinect", out value);
                 if ("True".Equals(value, StringComparison.OrdinalIgnoreCase) && "en-US".Equals(recognizer.Culture.Name, StringComparison.OrdinalIgnoreCase))
+                {
                     return recognizer;
+                }
             }
+
             return null;
         }
 
@@ -79,6 +74,12 @@ namespace Hello.v2
                 }
             }
 
+            if (null == this.sensor)
+            {
+                //this.statusBarText.Text = Properties.Resources.NoKinectReady;
+                return;
+            }
+
             RecognizerInfo ri = GetKinectRecognizer();
 
             if (null != ri)
@@ -95,7 +96,6 @@ namespace Hello.v2
 
                 speechEngine.SpeechRecognized += SpeechRecognized;
                 speechEngine.SpeechRecognitionRejected += SpeechRejected;
-
                 speechEngine.SetInputToAudioStream(
                     sensor.AudioSource.Start(), new SpeechAudioFormatInfo(EncodingFormat.Pcm, 16000, 16, 1, 32000, 2, null));
                 speechEngine.RecognizeAsync(RecognizeMode.Multiple);
@@ -104,11 +104,11 @@ namespace Hello.v2
 
         public MainWindow()
         {
+            InitializeComponent();
+
             mplayer.Open(new Uri(@"../../Soundtrack/Casa Bossa Nova.mp3", UriKind.Relative));
             mplayer.MediaEnded += new EventHandler(Media_Ended);
             mplayer.Play();
-            
-            InitializeComponent();
         }
 
         private void ClearRecognitionHighlights()
@@ -1532,6 +1532,24 @@ namespace Hello.v2
         private void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)
         {
             ClearRecognitionHighlights();
+        }
+
+        private void WindowClosing(object sender, CancelEventArgs e)
+        {
+            if (null != this.sensor)
+            {
+                this.sensor.AudioSource.Stop();
+
+                this.sensor.Stop();
+                this.sensor = null;
+            }
+
+            if (null != this.speechEngine)
+            {
+                this.speechEngine.SpeechRecognized -= SpeechRecognized;
+                this.speechEngine.SpeechRecognitionRejected -= SpeechRejected;
+                this.speechEngine.RecognizeAsyncStop();
+            }
         }
 
         private void Media_Ended(object sender, EventArgs e)

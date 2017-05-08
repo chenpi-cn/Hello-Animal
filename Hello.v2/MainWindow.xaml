@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Hello.v2"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Hello.v2.MainWindow"
         mc:Ignorable="d" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None"
-        Title="Hello Animal" Height="350" Width="525" Icon="Icon/128.ico">
+        Title="Hello Animal" Height="350" Width="525" Icon="Icon/128.ico" Loaded="WindowLoaded" Closing="WindowClosing">
     <Grid Name="container">
         <Grid Name="Mainmenu" Visibility="Visible">
             <Grid.Background>
@@ -30,12 +30,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="a2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/1/Dog.jpg"/>
             </Grid.Background>
         </Grid>
         <Grid Name="a3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/1/Fox.jpg"/>
             </Grid.Background>
         </Grid>
@@ -45,7 +45,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="a5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/1/Lion.jpg"/>
             </Grid.Background>
         </Grid>
@@ -66,12 +66,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="b2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
-                <ImageBrush ImageSource="Images/2/crocodile.jpg"/>
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/2/Crocodile.jpg"/>
             </Grid.Background>
         </Grid>
         <Grid Name="b3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/2/elephant.jpg"/>
             </Grid.Background>
         </Grid>
@@ -81,7 +81,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="b5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/2/gorilla.jpg"/>
             </Grid.Background>
         </Grid>
@@ -102,12 +102,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="c2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/3/emu.jpg"/>
             </Grid.Background>
         </Grid>
         <Grid Name="c3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/3/hedgehog.jpg"/>
             </Grid.Background>
         </Grid>
@@ -117,7 +117,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="c5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/3/leopard.jpg"/>
             </Grid.Background>
         </Grid>
@@ -143,12 +143,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="d2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/4/Dog.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="d3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/4/Fox.png"/>
             </Grid.Background>
         </Grid>
@@ -158,7 +158,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="d5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/4/Lion.png"/>
             </Grid.Background>
         </Grid>
@@ -179,12 +179,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="e2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/5/crocodile.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="e3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/5/elephant.png"/>
             </Grid.Background>
         </Grid>
@@ -194,7 +194,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="e5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/5/gorilla.png"/>
             </Grid.Background>
         </Grid>
@@ -215,12 +215,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="f2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/6/emu.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="f3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/6/hedgehog.png"/>
             </Grid.Background>
         </Grid>
@@ -230,7 +230,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="f5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/6/leopard.png"/>
             </Grid.Background>
         </Grid>
@@ -256,12 +256,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="g2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/7/Dog.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/7/Fox.png"/>
             </Grid.Background>
         </Grid>
@@ -271,7 +271,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="g5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/7/Lion.png"/>
             </Grid.Background>
         </Grid>
@@ -292,12 +292,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="h2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/8/crocodile.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/8/elephant.png"/>
             </Grid.Background>
         </Grid>
@@ -307,7 +307,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="h5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/8/gorilla.png"/>
             </Grid.Background>
         </Grid>
@@ -328,12 +328,12 @@
             </Grid.Background>
         </Grid>
         <Grid Name="i2" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/9/emu.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i3" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/9/hedgehog.png"/>
             </Grid.Background>
         </Grid>
@@ -343,7 +343,7 @@
             </Grid.Background>
         </Grid>
         <Grid Name="i5" Visibility="Hidden">
-            <Grid.Background Visibility="Hidden">
+            <Grid.Background>
                 <ImageBrush ImageSource="Images/9/leopard.png"/>
             </Grid.Background>
         </Grid>

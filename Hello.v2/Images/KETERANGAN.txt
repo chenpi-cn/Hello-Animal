@@ -1,0 +1,3 @@
+Font di Score:Segoe Print
+
+Warna font si score: 391f11
