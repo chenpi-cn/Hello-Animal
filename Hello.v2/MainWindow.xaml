@@ -6,11 +6,16 @@
         xmlns:local="clr-namespace:Hello.v2"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Hello.v2.MainWindow"
         mc:Ignorable="d" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None"
-        Title="Hello Animal" Height="350" Width="525" Icon="Icon/128.ico" Loaded="WindowLoaded" Closing="WindowClosing">
+        Title="Hello Animal" Height="768" Width="1366" Loaded="WindowLoaded" Closing="WindowClosing">
     <Grid Name="container">
         <Grid Name="Mainmenu" Visibility="Visible">
             <Grid.Background>
-                <ImageBrush ImageSource="Images\Mainmenu.png"/>
+                <ImageBrush ImageSource="Images\Mainmenu-01.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid Name="Help" Visibility="Hidden">
+            <Grid.Background>
+                <ImageBrush ImageSource="Images\help-01.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="Level" Visibility="Hidden">
@@ -20,10 +25,10 @@
         </Grid>
         <Grid Name="Credits" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/credit.png"/>
+                <ImageBrush ImageSource="Images/credit-01.png"/>
             </Grid.Background>
         </Grid>
-        
+
         <Grid Name="a1" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/1/Cat.jpg"/>
@@ -172,7 +177,7 @@
                 <ImageBrush ImageSource="Images/4/Panda.png"/>
             </Grid.Background>
         </Grid>
-        
+
         <Grid Name="e1" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/5/camel.png"/>
@@ -285,7 +290,7 @@
                 <ImageBrush ImageSource="Images/7/Panda.png"/>
             </Grid.Background>
         </Grid>
-        
+
         <Grid Name="h1" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/8/camel.png"/>
@@ -375,8 +380,25 @@
         </Grid>
         <Grid Name="star3" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/score3.png"/>
+                <ImageBrush ImageSource="Images/score-01.png"/>
+            </Grid.Background>
+
+        </Grid>
+        <Grid Name="pause" Visibility="Hidden" Width="143" Height="57" Margin="10,10,1213,701">
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/pause.png"/>
             </Grid.Background>
         </Grid>
+        <Grid Name="pausemenu" Visibility="Hidden" Width="322" Height="344">
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/pausemenu.png"/>
+            </Grid.Background>
+        </Grid>
+        <Grid Name="exitprompt" Visibility="Hidden" Width="303" Height="188">
+            <Grid.Background>
+                <ImageBrush ImageSource="Images/exit.png"/>
+            </Grid.Background>
+        </Grid>
+        <Label x:Name="lblScore" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
     </Grid>
 </Window>

@@ -83,6 +83,9 @@
   <PropertyGroup>
     <SignManifests>true</SignManifests>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>128.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -162,9 +165,6 @@
       <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Hello.v2_TemporaryKey.pfx" />
-    <None Include="package.appxmanifest">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -177,8 +177,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Properties\SpeechGrammar.xml" />
+    <SplashScreen Include="Images\splashscreen.png" />
+    <Resource Include="128.ico" />
+    <Resource Include="Images\credit-01.png" />
+    <Resource Include="Images\pausemenu.png" />
+    <Resource Include="Images\Mainmenu-01.png" />
+    <Resource Include="Images\help-01.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\score-01.png" />
     <Content Include="Soundtrack\Ave Marimba.mp3" />
-    <Content Include="Soundtrack\Casa Bossa Nova.mp3" />
+    <Resource Include="Soundtrack\Casa Bossa Nova.mp3" />
     <Content Include="Soundtrack\Doobly Doo.mp3" />
     <Content Include="Soundtrack\Fife and Drum.mp3" />
     <Content Include="Soundtrack\Fretless.mp3" />
@@ -274,29 +282,11 @@
     <Resource Include="Images\9\otter.png" />
     <Resource Include="Images\9\toucan.png" />
     <Resource Include="Images\9\turtle.png" />
-    <Resource Include="Images\credit.jpg" />
-    <Resource Include="Images\credit.png" />
-    <Resource Include="Images\Mainmenu.jpg" />
-    <Resource Include="Images\Mainmenu.png" />
-    <Resource Include="Images\menu_pause.png" />
     <Resource Include="Images\pause.png" />
-    <Resource Include="Images\score.jpg" />
-    <Resource Include="Images\score.png" />
-    <Resource Include="Images\score1.jpg" />
     <Resource Include="Images\score1.png" />
-    <Resource Include="Images\score2.jpg" />
     <Resource Include="Images\score2.png" />
-    <Resource Include="Images\score3.jpg" />
     <Resource Include="Images\score3.png" />
-    <Resource Include="Images\scorebackground.jpg" />
-    <Resource Include="Images\scorebackground.png" />
-    <Resource Include="Images\stage.jpg" />
     <Resource Include="Images\stage.png" />
-    <Resource Include="Images\star.png" />
-    <Resource Include="Images\star1.png" />
-    <Resource Include="Images\star2.png" />
-    <Resource Include="Images\star3.png" />
-    <Content Include="play.mp3" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

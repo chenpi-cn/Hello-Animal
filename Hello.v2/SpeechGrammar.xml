@@ -258,6 +258,42 @@
       </item>
       
       <item>
+        <tag>MENU</tag>
+        <one-of>
+          <item>menu</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>PAUSE</tag>
+        <one-of>
+          <item>pause</item>
+          <item>paws</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>RESUME</tag>
+        <one-of>
+          <item>resume</item>
+        </one-of>
+      </item>
+        
+      <item>
+        <tag>EXIT</tag>
+        <one-of>
+          <item>exit</item>
+        </one-of>
+      </item>      
+      
+      <item>
+        <tag>BACK</tag>
+        <one-of>
+          <item>back</item>
+        </one-of>
+      </item>
+      
+      <item>
         <tag>HELP</tag>
         <one-of>
           <item>help</item>
@@ -268,6 +304,27 @@
         <tag>CLOSE</tag>
         <one-of>
           <item>close</item>
+        </one-of>
+      </item>
+      
+      <item>
+        <tag>BACK</tag>
+        <one-of>
+          <item>back</item>
+        </one-of>
+      </item>
+      
+    <item>
+        <tag>YES</tag>
+        <one-of>
+          <item>yes</item>
+        </one-of>
+      </item>
+
+<item>
+        <tag>NO</tag>
+        <one-of>
+          <item>no</item>
         </one-of>
       </item>
     

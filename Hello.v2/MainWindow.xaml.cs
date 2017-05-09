@@ -104,11 +104,11 @@ namespace Hello.v2
 
         public MainWindow()
         {
-            InitializeComponent();
-
-            mplayer.Open(new Uri(@"../../Soundtrack/Casa Bossa Nova.mp3", UriKind.Relative));
+            mplayer.Open(new Uri("../../../Soundtrack/Casa Bossa Nova.mp3",UriKind.RelativeOrAbsolute));
             mplayer.MediaEnded += new EventHandler(Media_Ended);
             mplayer.Play();
+
+            InitializeComponent();
         }
 
         private void ClearRecognitionHighlights()
@@ -125,6 +125,13 @@ namespace Hello.v2
             const double ConfidenceThreshold = 0;
 
             bool duplicate = true;
+
+            if (Mainmenu.Visibility == Visibility.Hidden || Level.Visibility == Visibility.Hidden ||
+                star1.Visibility == Visibility.Hidden || star2.Visibility == Visibility.Hidden ||
+                star3.Visibility == Visibility.Hidden)
+                pause.Visibility = Visibility.Visible;
+            else
+                pause.Visibility = Visibility.Hidden;
 
             ClearRecognitionHighlights();
             if (e.Result.Confidence >= ConfidenceThreshold)
@@ -149,15 +156,20 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "BACK":
-                        if(Credits.Visibility==Visibility.Visible)
+                        if (Credits.Visibility == Visibility.Visible)
                         {
                             Credits.Visibility = Visibility.Hidden;
+                            Mainmenu.Visibility = Visibility.Visible;
+                        }
+                        else if (Help.Visibility == Visibility.Visible)
+                        {
+                            Help.Visibility = Visibility.Hidden;
                             Mainmenu.Visibility = Visibility.Visible;
                         }
                         ClearRecognitionHighlights();
                         break;
                     case "MENU":
-                        if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible)
+                        if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
                         {
                             foreach (Grid g in container.Children)
                                 g.Visibility = Visibility.Hidden;
@@ -167,12 +179,38 @@ namespace Hello.v2
                         break;
                     case "CLOSE":
                     case "EXIT":
-                        this.Close();
+                        if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+                            exitprompt.Visibility = Visibility.Visible;
                         ClearRecognitionHighlights();
                         break;
-                    /*case "HELP":
-                        howtoplay.Visibility = Visibility.Visible;
-                        break;*/
+
+                    case "YES":
+                        if (exitprompt.Visibility == Visibility.Visible)
+                            this.Close();
+                        ClearRecognitionHighlights();
+                        break;
+
+                    case "NO":
+                        if (exitprompt.Visibility == Visibility.Visible)
+                            exitprompt.Visibility = Visibility.Hidden;
+                        ClearRecognitionHighlights();
+                        break;
+                    case "HELP":
+                        if(Mainmenu.Visibility==Visibility.Visible)
+                        {
+                            Help.Visibility = Visibility.Visible;
+                            Mainmenu.Visibility = Visibility.Hidden;
+                        }
+                        break;
+
+                    case "PAUSE":
+                        if(pause.Visibility==Visibility.Visible)
+                        {
+                            pausemenu.Visibility = Visibility.Visible;
+                            pause.Visibility = Visibility.Hidden;
+                        }
+                        ClearRecognitionHighlights();
+                        break;
 
                     //LEVEL 1,4,7
                     case "ONE":
@@ -184,9 +222,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_A[seed])
+                                if (RNGpool_A[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_A[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -201,9 +239,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_D[seed])
+                                if (RNGpool_D[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_D[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -218,9 +256,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_G[seed])
+                                if (RNGpool_G[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_G[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -244,9 +282,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -254,9 +292,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -264,9 +302,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -301,7 +339,7 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
                                     else if (g.Name != RNGpool_A[seed])
                                         g.Visibility = Visibility.Hidden;
@@ -311,9 +349,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else if (g.Name != RNGpool_A[seed])
+                                    else if (g.Name != RNGpool_D[seed])
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -321,9 +359,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else if (g.Name != RNGpool_A[seed])
+                                    else if (g.Name != RNGpool_G[seed])
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -359,9 +397,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -369,9 +407,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -379,9 +417,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -417,9 +455,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -427,9 +465,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -437,9 +475,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -475,9 +513,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -485,9 +523,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -495,9 +533,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -533,9 +571,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -543,9 +581,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -553,9 +591,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -591,9 +629,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_A[seed])
+                                    if (RNGpool_A[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_A[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -601,9 +639,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_D[seed])
+                                    if (RNGpool_D[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_D[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -611,9 +649,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_G[seed])
+                                    if (RNGpool_G[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_G[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -642,9 +680,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_B[seed])
+                                if (RNGpool_B[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_B[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -659,9 +697,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_E[seed])
+                                if (RNGpool_E[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_E[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -676,9 +714,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_H[seed])
+                                if (RNGpool_H[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_H[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -702,9 +740,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -712,9 +750,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -722,9 +760,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -760,9 +798,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -770,9 +808,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -780,9 +818,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -818,9 +856,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -828,9 +866,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -838,9 +876,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -876,9 +914,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -886,9 +924,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -896,9 +934,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -934,9 +972,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -944,9 +982,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -954,9 +992,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -992,9 +1030,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1002,9 +1040,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1012,9 +1050,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1048,9 +1086,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_B[seed])
+                                    if (RNGpool_B[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_B[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1058,9 +1096,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_E[seed])
+                                    if (RNGpool_E[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_E[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1068,9 +1106,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_H[seed])
+                                    if (RNGpool_H[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_H[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1099,9 +1137,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_C[seed])
+                                if (RNGpool_C[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_C[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -1116,9 +1154,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_F[seed])
+                                if (RNGpool_F[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_F[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -1133,9 +1171,9 @@ namespace Hello.v2
                             used.Add(seed);
                             foreach (Grid g in container.Children)
                             {
-                                if (g.Name == RNGpool_I[seed])
+                                if (RNGpool_I[seed] == g.Name)
                                     g.Visibility = Visibility.Visible;
-                                else
+                                else if (RNGpool_I[seed] != g.Name)
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
@@ -1159,9 +1197,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1169,9 +1207,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if(RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1179,9 +1217,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1217,9 +1255,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1227,9 +1265,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1237,9 +1275,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1275,9 +1313,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1285,9 +1323,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1295,9 +1333,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1333,9 +1371,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1343,9 +1381,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1353,9 +1391,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1391,9 +1429,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1401,9 +1439,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1411,9 +1449,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1449,9 +1487,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1459,9 +1497,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1469,9 +1507,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1507,9 +1545,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1517,9 +1555,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1527,9 +1565,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1565,9 +1603,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_C[seed])
+                                    if (RNGpool_C[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_C[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1575,9 +1613,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_F[seed])
+                                    if (RNGpool_F[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_F[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1585,9 +1623,9 @@ namespace Hello.v2
                             {
                                 foreach (Grid g in container.Children)
                                 {
-                                    if (g.Name == RNGpool_I[seed])
+                                    if (RNGpool_I[seed] == g.Name)
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (RNGpool_I[seed] != g.Name)
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -1608,6 +1646,12 @@ namespace Hello.v2
                     default:
                         ClearRecognitionHighlights();
                         break;
+                }
+
+                if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible)
+                {
+                    lblScore.Content += score.ToString();
+                    lblScore.Visibility = Visibility.Visible;
                 }
             }
         }
