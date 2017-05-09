@@ -17,7 +17,7 @@ namespace Hello.v2
     {
         MediaPlayer mplayer = new MediaPlayer();
         Random r = new Random();
-        private List<int> used;
+        private List<int> used = new List<int> { };
         private List<string> RNGpool_A = new List<string> { "a1", "a2", "a3", "a4", "a5", "a6", "a7" };
         private List<string> RNGpool_B = new List<string> { "b1", "b2", "b3", "b4", "b5", "b6", "b7" };
         private List<string> RNGpool_C = new List<string> { "c1", "c2", "c3", "c4", "c5", "c6", "c7", "c8" };
@@ -123,7 +123,9 @@ namespace Hello.v2
         private void SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
             const double ConfidenceThreshold = 0;
-            
+
+            bool duplicate = true;
+
             ClearRecognitionHighlights();
             if (e.Result.Confidence >= ConfidenceThreshold)
             {
@@ -136,6 +138,7 @@ namespace Hello.v2
                             Mainmenu.Visibility = Visibility.Hidden;
                             Level.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CREDITS":
                         if(Mainmenu.Visibility==Visibility.Visible)
@@ -143,6 +146,7 @@ namespace Hello.v2
                             Mainmenu.Visibility = Visibility.Hidden;
                             Credits.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "BACK":
                         if(Credits.Visibility==Visibility.Visible)
@@ -150,6 +154,7 @@ namespace Hello.v2
                             Credits.Visibility = Visibility.Hidden;
                             Mainmenu.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "MENU":
                         if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible)
@@ -158,14 +163,17 @@ namespace Hello.v2
                                 g.Visibility = Visibility.Hidden;
                             Mainmenu.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CLOSE":
                     case "EXIT":
                         this.Close();
+                        ClearRecognitionHighlights();
                         break;
                     /*case "HELP":
                         howtoplay.Visibility = Visibility.Visible;
                         break;*/
+
                     //LEVEL 1,4,7
                     case "ONE":
                         if (Level.Visibility == Visibility.Visible)
@@ -182,6 +190,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "FOUR":
                         if (Level.Visibility == Visibility.Visible)
@@ -198,6 +207,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "SEVEN":
                         if (Level.Visibility == Visibility.Visible)
@@ -214,18 +224,21 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CAT":
                         if (a1.Visibility == Visibility.Visible || d1.Visibility == Visibility.Visible || g1.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a1.Visibility == Visibility.Visible)
                             {
@@ -275,12 +288,14 @@ namespace Hello.v2
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while(duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a2.Visibility == Visibility.Visible)
                             {
@@ -288,7 +303,7 @@ namespace Hello.v2
                                 {
                                     if (g.Name == RNGpool_A[seed])
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (g.Name != RNGpool_A[seed])
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -298,7 +313,7 @@ namespace Hello.v2
                                 {
                                     if (g.Name == RNGpool_D[seed])
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (g.Name != RNGpool_A[seed])
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -308,7 +323,7 @@ namespace Hello.v2
                                 {
                                     if (g.Name == RNGpool_G[seed])
                                         g.Visibility = Visibility.Visible;
-                                    else
+                                    else if (g.Name != RNGpool_A[seed])
                                         g.Visibility = Visibility.Hidden;
                                 }
                             }
@@ -324,18 +339,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "FOX":
                         if (a3.Visibility == Visibility.Visible || d3.Visibility == Visibility.Visible || g3.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a3.Visibility == Visibility.Visible)
                             {
@@ -379,18 +397,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
-                        break;
+                        ClearRecognitionHighlights();
+                        break;                        
                     case "HORSE":
                         if (a4.Visibility == Visibility.Visible || d4.Visibility == Visibility.Visible || g4.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a4.Visibility == Visibility.Visible)
                             {
@@ -434,18 +455,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "LION":
                         if (a5.Visibility == Visibility.Visible || d5.Visibility == Visibility.Visible || g5.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a5.Visibility == Visibility.Visible)
                             {
@@ -489,18 +513,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "MONKEY":
                         if (a6.Visibility == Visibility.Visible || d6.Visibility == Visibility.Visible || g6.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a6.Visibility == Visibility.Visible)
                             {
@@ -544,18 +571,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "PANDA":
                         if (a7.Visibility == Visibility.Visible || d7.Visibility == Visibility.Visible || g7.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (a7.Visibility == Visibility.Visible)
                             {
@@ -599,6 +629,7 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
 
                     //LEVEL 2,5,8
@@ -617,6 +648,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "FIVE":
                         if (Level.Visibility == Visibility.Visible)
@@ -633,6 +665,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "EIGHT":
                         if (Level.Visibility == Visibility.Visible)
@@ -649,18 +682,21 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CAMEL":
                         if (b1.Visibility == Visibility.Visible || e1.Visibility == Visibility.Visible || h1.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b1.Visibility == Visibility.Visible)
                             {
@@ -704,18 +740,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CROCODILE":
                         if (b2.Visibility == Visibility.Visible || e2.Visibility == Visibility.Visible || h2.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b2.Visibility == Visibility.Visible)
                             {
@@ -759,18 +798,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "ELEPHANT":
                         if (b3.Visibility == Visibility.Visible || e3.Visibility == Visibility.Visible || h3.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b3.Visibility == Visibility.Visible)
                             {
@@ -814,18 +856,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "GIRAFFE":
                         if (b4.Visibility == Visibility.Visible || e4.Visibility == Visibility.Visible || h4.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b4.Visibility == Visibility.Visible)
                             {
@@ -869,18 +914,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "GORILLA":
                         if (b5.Visibility == Visibility.Visible || e5.Visibility == Visibility.Visible || h5.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b5.Visibility == Visibility.Visible)
                             {
@@ -924,18 +972,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "SNAKE":
                         if (b6.Visibility == Visibility.Visible || e6.Visibility == Visibility.Visible || h6.Visibility == Visibility.Visible)
                         {
                             score +=(int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 8);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 8);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 8);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (b6.Visibility == Visibility.Visible)
                             {
@@ -979,6 +1030,7 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "ZEBRA":
                         if (b7.Visibility == Visibility.Visible || e7.Visibility == Visibility.Visible || h7.Visibility == Visibility.Visible)
@@ -1034,6 +1086,7 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
 
                     //LEVEL 3,6,9
@@ -1052,6 +1105,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "SIX":
                         if (Level.Visibility == Visibility.Visible)
@@ -1068,6 +1122,7 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "NINE":
                         if (Level.Visibility == Visibility.Visible)
@@ -1084,18 +1139,21 @@ namespace Hello.v2
                                     g.Visibility = Visibility.Hidden;
                             }
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "CHIMPANZEE":
                         if (c1.Visibility == Visibility.Visible || f1.Visibility == Visibility.Visible || i1.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c1.Visibility == Visibility.Visible)
                             {
@@ -1139,18 +1197,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "EMU":
                         if (c2.Visibility == Visibility.Visible || f2.Visibility == Visibility.Visible || i2.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c2.Visibility == Visibility.Visible)
                             {
@@ -1194,18 +1255,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "HEDGEHOG":
                         if (c3.Visibility == Visibility.Visible || f3.Visibility == Visibility.Visible || i3.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c3.Visibility == Visibility.Visible)
                             {
@@ -1249,18 +1313,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "LEMUR":
                         if (c4.Visibility == Visibility.Visible || f4.Visibility == Visibility.Visible || i4.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c4.Visibility == Visibility.Visible)
                             {
@@ -1304,18 +1371,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "LEOPARD":
                         if (c5.Visibility == Visibility.Visible || f5.Visibility == Visibility.Visible || i5.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c5.Visibility == Visibility.Visible)
                             {
@@ -1359,18 +1429,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "OTTER":
                         if (c6.Visibility == Visibility.Visible || f6.Visibility == Visibility.Visible || i6.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c6.Visibility == Visibility.Visible)
                             {
@@ -1414,18 +1487,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "TOUCAN":
                         if (c7.Visibility == Visibility.Visible || f7.Visibility == Visibility.Visible || i7.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c7.Visibility == Visibility.Visible)
                             {
@@ -1469,18 +1545,21 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
                         break;
                     case "TURTLE":
                         if (c8.Visibility == Visibility.Visible || f8.Visibility == Visibility.Visible || i8.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = r.Next(1, 9);
-                            for (int i = 0; i < used.Count; i++)
-                                if (seed == used[i])
-                                {
-                                    seed = r.Next(1, 9);
-                                    i = -1;
-                                }
+                            while (duplicate)
+                            {
+                                foreach (int i in used)
+                                    if (seed == i)
+                                        seed = r.Next(1, 9);
+
+                                duplicate = false;
+                            }
                             used.Add(seed);
                             if (c8.Visibility == Visibility.Visible)
                             {
@@ -1524,6 +1603,10 @@ namespace Hello.v2
                             else
                                 star3.Visibility = Visibility.Visible;
                         }
+                        ClearRecognitionHighlights();
+                        break;
+                    default:
+                        ClearRecognitionHighlights();
                         break;
                 }
             }
