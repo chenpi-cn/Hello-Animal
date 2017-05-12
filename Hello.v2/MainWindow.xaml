@@ -372,17 +372,19 @@
             <Grid.Background>
                 <ImageBrush ImageSource="Images/score1.png"/>
             </Grid.Background>
+            <Label x:Name="lblScore1" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
         </Grid>
         <Grid Name="star2" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/score2.png"/>
             </Grid.Background>
+            <Label x:Name="lblScore2" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
         </Grid>
         <Grid Name="star3" Visibility="Hidden">
             <Grid.Background>
                 <ImageBrush ImageSource="Images/score-01.png"/>
             </Grid.Background>
-
+            <Label x:Name="lblScore3" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
         </Grid>
         <Grid Name="pause" Visibility="Hidden" Width="143" Height="57" Margin="10,10,1213,701">
             <Grid.Background>
@@ -399,6 +401,6 @@
                 <ImageBrush ImageSource="Images/exit.png"/>
             </Grid.Background>
         </Grid>
-        <Label x:Name="lblScore" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
+        
     </Grid>
 </Window>

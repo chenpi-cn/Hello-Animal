@@ -13,6 +13,7 @@
         <tag>DOG</tag>
         <one-of>
           <item>dog</item>
+          <item>dogs</item>
         </one-of>
       </item>
     
@@ -27,6 +28,7 @@
         <tag>HORSE</tag>
         <one-of>
           <item>horse</item>
+          <item>horses</item>
         </one-of>
       </item>
     
@@ -62,6 +64,7 @@
     <item>
         <tag>CROCODILE</tag>
         <one-of>
+          <item>croak</item>
           <item>crocodile</item>
         </one-of>
       </item>
@@ -160,6 +163,7 @@
     <item>
         <tag>START</tag>
         <one-of>
+          <item>star</item>
           <item>start</item>
         </one-of>
       </item>
@@ -239,6 +243,7 @@
         <tag>PAUSE</tag>
         <one-of>
           <item>pause</item>
+          <item>paws</item>
         </one-of>
       </item>
     
