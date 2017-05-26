@@ -50,7 +50,11 @@ We're still working for application deployment, but you can always build yoursel
 * Apparently the scores didn't reset. Will fix
 * STATUS: 85% working
 
-0.5.1 (3 May 2017)
+0.5.1 (1 May 2017)
+* Project uploaded to GitHub!
+* And some more undocumented changes I forgot to write down. Whoops
+
+0.5.2 (3 May 2017)
 * Code Housekeeping
 * Bugs squashed
 * Reworked the whole scoring system
