@@ -867,6 +867,334 @@ namespace Hello.v2
             }
         }
 
+        //Menu Start
+        private void Frame_Mainmenu_Start_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Mainmenu.Visibility == Visibility.Visible)
+            {
+                Mainmenu.Visibility = Visibility.Hidden;
+                Level.Visibility = Visibility.Visible;
+                Frame_Mainmenu_Start.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Credit
+        private void Frame_Mainmenu_Credit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Mainmenu.Visibility == Visibility.Visible)
+            {
+                Mainmenu.Visibility = Visibility.Hidden;
+                Credits.Visibility = Visibility.Visible;
+                Frame_Mainmenu_Start.Visibility = Visibility.Hidden;
+            }
+        }
+        
+        //Menu Help
+        private void Frame_Mainmenu_Help_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (exitprompt.Visibility == Visibility.Visible)
+                exitprompt.Visibility = Visibility.Hidden;
+            Frame_Mainmenu_Start.Visibility = Visibility.Hidden;
+        }
+
+        //Menu Help_Back
+        private void Frame_Help_Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Credits.Visibility == Visibility.Visible)
+            {
+                Credits.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                Frame_Help_Back.Visibility = Visibility.Hidden;
+            }
+            else if (Help.Visibility == Visibility.Visible)
+            {
+                Help.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                Frame_Help_Back.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_1
+        private void Frame_Select_1_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("A");
+                Frame_Select_1.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_2
+        private void Frame_Select_2_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("B");
+                Frame_Select_2.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_3
+        private void Frame_Select_3_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 8);
+                used.Add(seed);
+                getAnimal("C");
+                Frame_Select_3.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_4
+        private void Frame_Select_4_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("D");
+                Frame_Select_4.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_5
+        private void Frame_Select_5_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("E");
+                Frame_Select_5.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_6
+        private void Frame_Select_6_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 8);
+                used.Add(seed);
+                getAnimal("F");
+                Frame_Select_6.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_7
+        private void Frame_Select_7_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("G");
+                Frame_Select_7.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_8
+        private void Frame_Select_8_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 7);
+                used.Add(seed);
+                getAnimal("H");
+                Frame_Select_8.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Select_9
+        private void Frame_Select_9_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Level.Visibility == Visibility.Visible)
+            {
+                Level.Visibility = Visibility.Hidden;
+
+                seed = r.Next(0, 8);
+                used.Add(seed);
+                getAnimal("I");
+                Frame_Select_9.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Menu Credit
+        private void Frame_Credit_Back_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (Credits.Visibility == Visibility.Visible)
+            {
+                Credits.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                Frame_Help_Back.Visibility = Visibility.Hidden;
+            }
+            else if (Help.Visibility == Visibility.Visible)
+            {
+                Help.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                Frame_Help_Back.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_1 Menu
+        private void Star1_Menu_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star1_Menu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_1 Exit
+        private void Star1_Exit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star1_Exit.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_2 Menu
+        private void Star2_Menu_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star2_Menu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_2 Exit
+        private void Star2_Exit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star2_Exit.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_3 Menu
+        private void Star3_Menu_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star3_Menu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        //Star_3 Exit
+        private void Star3_Exit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Star3_Exit.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Frame_Pause_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (pause.Visibility == Visibility.Visible)
+            {
+                pausemenu.Visibility = Visibility.Visible;
+                pause.Visibility = Visibility.Hidden;
+                Frame_Pause.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Frame_Pause_Resume_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (pausemenu.Visibility == Visibility.Visible)
+            {
+                pausemenu.Visibility = Visibility.Hidden;
+                pause.Visibility = Visibility.Visible;
+                Frame_Pause_Resume.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Frame_Pause_Menu_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
+            {
+                foreach (Grid g in container.Children)
+                    g.Visibility = Visibility.Hidden;
+                Mainmenu.Visibility = Visibility.Visible;
+                score = 0;
+                used.Clear();
+                Frame_Pause_Menu.Visibility = Visibility.Hidden;
+            }
+        }
+
+        private void Frame_Pause_Exit_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible || Mainmenu.Visibility == Visibility.Visible)
+                exitprompt.Visibility = Visibility.Visible;
+            Frame_Pause_Exit.Visibility = Visibility.Hidden;
+        }
+
+        private void Frame_ExitPrompt_Yes_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (exitprompt.Visibility == Visibility.Visible)
+                this.Close();
+            Frame_ExitPrompt_Yes.Visibility = Visibility.Hidden;
+        }
+
+        private void Frame_ExitPrompt_No_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (exitprompt.Visibility == Visibility.Visible)
+                exitprompt.Visibility = Visibility.Hidden;
+            Frame_ExitPrompt_No.Visibility = Visibility.Hidden;
+        }
+
         private void Media_Ended(object sender, EventArgs e)
         {
             mplayer.Position = TimeSpan.Zero;
