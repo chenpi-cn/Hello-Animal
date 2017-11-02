@@ -8,14 +8,13 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Hello.v2</RootNamespace>
     <AssemblyName>Hello.v2</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <TargetFrameworkProfile />
-    <PublishUrl>D:\Hello Animal\</PublishUrl>
+    <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,13 +24,11 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <TargetCulture>en-GB</TargetCulture>
-    <ProductName>Hello Animal</ProductName>
+    <TargetCulture>en-US</TargetCulture>
     <PublisherName>Hello Animal Team</PublisherName>
-    <ApplicationRevision>1923</ApplicationRevision>
-    <ApplicationVersion>0.9.10.%2a</ApplicationVersion>
+    <ApplicationRevision>1083</ApplicationRevision>
+    <ApplicationVersion>0.9.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
-    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -90,9 +87,6 @@
     <ApplicationIcon>128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ApiAiSDK, Version=1.6.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ApiAiSDK.1.6.5\lib\net35\ApiAiSDK.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Kinect, Version=1.8.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\Microsoft SDKs\Kinect\v1.8\Assemblies\Microsoft.Kinect.dll</HintPath>
@@ -109,9 +103,6 @@
     <Reference Include="Microsoft.Speech, Version=11.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Speech\11.0.0.0__31bf3856ad364e35\Microsoft.Speech.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -133,6 +124,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Resource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource1.resx</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,21 +160,64 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resource1.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="Hello.v2_TemporaryKey.pfx" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Resources\Hello.v2.sln" />
+    <None Include="Soundtrack\Fretless.mp3.sfk" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Properties\SpeechGrammar.xml" />
+    <SplashScreen Include="Images\splashscreen.png" />
     <Resource Include="128.ico" />
+    <Resource Include="Images\credit-01.png" />
+    <Resource Include="Images\pausemenu.png" />
+    <Resource Include="Images\Mainmenu-01.png" />
+    <Resource Include="Images\help-01.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\score-01.png" />
+    <Content Include="Soundtrack\Ave Marimba.mp3" />
+    <Resource Include="Soundtrack\Casa Bossa Nova.mp3" />
+    <Content Include="Soundtrack\Doobly Doo.mp3" />
+    <Content Include="Soundtrack\Fife and Drum.mp3" />
+    <Content Include="Soundtrack\Fretless.mp3" />
+    <Content Include="Soundtrack\Galway.mp3" />
+    <Content Include="Soundtrack\Happy Happy Game Show.mp3" />
+    <Content Include="Soundtrack\Kings of Tara.mp3" />
+    <Content Include="Soundtrack\Lobby Time.mp3" />
+    <Content Include="Soundtrack\Quirky Dog.mp3" />
+    <Content Include="Soundtrack\Rainbows.mp3" />
+    <Content Include="Soundtrack\Secret of Tiki Island.mp3" />
+    <Content Include="Soundtrack\Tech Live.mp3" />
+    <Resource Include="XMLFile1.xml" />
+    <Resource Include="SpeechGrammar.xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Icon\128.ico" />
+    <Resource Include="Icon\32.ico" />
+    <Resource Include="Icon\48.ico" />
+    <Resource Include="Icon\64.ico" />
+    <Resource Include="Icon\apple-touch-icon-114x114.png" />
+    <Resource Include="Icon\apple-touch-icon-120x120.png" />
+    <Resource Include="Icon\apple-touch-icon-144x144.png" />
+    <Resource Include="Icon\apple-touch-icon-152x152.png" />
+    <Resource Include="Icon\apple-touch-icon-180x180.png" />
+    <Resource Include="Icon\apple-touch-icon-57x57.png" />
+    <Resource Include="Icon\apple-touch-icon-72x72.png" />
+    <Resource Include="Icon\apple-touch-icon-76x76.png" />
+    <Resource Include="Icon\apple-touch-icon.png" />
     <Resource Include="Images\1\Cat.jpg" />
-    <Resource Include="Images\1\dogs.jpg" />
+    <Resource Include="Images\1\Dog.jpg" />
     <Resource Include="Images\1\Fox.jpg" />
     <Resource Include="Images\1\Horse.jpg" />
     <Resource Include="Images\1\Lion.jpg" />
@@ -200,7 +239,7 @@
     <Resource Include="Images\3\Toucan.jpg" />
     <Resource Include="Images\3\Turtle.jpg" />
     <Resource Include="Images\4\cat.png" />
-    <Resource Include="Images\4\dogs.jpg" />
+    <Resource Include="Images\4\dog.png" />
     <Resource Include="Images\4\fox.png" />
     <Resource Include="Images\4\horse.png" />
     <Resource Include="Images\4\lion.png" />
@@ -221,46 +260,33 @@
     <Resource Include="Images\6\otter.png" />
     <Resource Include="Images\6\toucan.png" />
     <Resource Include="Images\6\turtle.png" />
-    <Resource Include="Images\7\cat.jpg" />
-    <Resource Include="Images\7\dogs.jpg" />
-    <Resource Include="Images\7\fox.jpg" />
-    <Resource Include="Images\7\horse.jpg" />
-    <Resource Include="Images\7\lion.jpg" />
-    <Resource Include="Images\7\monkey.jpg" />
-    <Resource Include="Images\7\panda.jpg" />
-    <Resource Include="Images\8\camel.jpg" />
-    <Resource Include="Images\8\crocodile.jpg" />
-    <Resource Include="Images\8\elephant.jpg" />
-    <Resource Include="Images\8\giraffe.jpg" />
-    <Resource Include="Images\8\gorilla.jpg" />
-    <Resource Include="Images\8\snake.jpg" />
-    <Resource Include="Images\8\zebra.jpg" />
-    <Resource Include="Images\9\chimpanzee.jpg" />
-    <Resource Include="Images\9\emu.jpg" />
-    <Resource Include="Images\9\hedgehog.jpg" />
-    <Resource Include="Images\9\lemur.jpg" />
-    <Resource Include="Images\9\leopard.jpg" />
-    <Resource Include="Images\9\otter.jpg" />
-    <Resource Include="Images\9\toucan.jpg" />
-    <Resource Include="Images\9\turtle.jpg" />
-    <Resource Include="Images\credit-01.png" />
-    <Resource Include="Images\exit.png" />
-    <Resource Include="Images\help-01.png" />
-    <Resource Include="Images\Mainmenu-01.png" />
+    <Resource Include="Images\7\cat.png" />
+    <Resource Include="Images\7\dog.png" />
+    <Resource Include="Images\7\fox.png" />
+    <Resource Include="Images\7\horse.png" />
+    <Resource Include="Images\7\lion.png" />
+    <Resource Include="Images\7\monkey.png" />
+    <Resource Include="Images\7\panda.png" />
+    <Resource Include="Images\8\camel.png" />
+    <Resource Include="Images\8\crocodile.png" />
+    <Resource Include="Images\8\elephant.png" />
+    <Resource Include="Images\8\giraffe.png" />
+    <Resource Include="Images\8\gorilla.png" />
+    <Resource Include="Images\8\snake.png" />
+    <Resource Include="Images\8\zebra.png" />
+    <Resource Include="Images\9\chimpanzee.png" />
+    <Resource Include="Images\9\emu.png" />
+    <Resource Include="Images\9\hedgehog.png" />
+    <Resource Include="Images\9\lemur.png" />
+    <Resource Include="Images\9\leopard.png" />
+    <Resource Include="Images\9\otter.png" />
+    <Resource Include="Images\9\toucan.png" />
+    <Resource Include="Images\9\turtle.png" />
     <Resource Include="Images\pause.png" />
-    <Resource Include="Images\pausemenu.png" />
-    <Resource Include="Images\score-01.png" />
-    <Resource Include="Images\score1-01.png" />
-    <Resource Include="Images\score2-01.png" />
+    <Resource Include="Images\score1.png" />
+    <Resource Include="Images\score2.png" />
+    <Resource Include="Images\score3.png" />
     <Resource Include="Images\stage.png" />
-    <Resource Include="Soundtrack\Casa Bossa Nova.mp3">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="SpeechGrammar.xml">
-      <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Icon\128.ico" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -271,14 +297,16 @@
       <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <SplashScreen Include="Images\splashscreen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

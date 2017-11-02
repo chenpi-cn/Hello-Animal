@@ -36,7 +36,7 @@
         </Grid>
         <Grid Name="a2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Dogs.jpg"/>
+                <ImageBrush ImageSource="Images/1/Dog.jpg"/>
             </Grid.Background>
         </Grid>
         <Grid Name="a3" Visibility="Hidden">
@@ -149,7 +149,7 @@
         </Grid>
         <Grid Name="d2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Dogs.jpg"/>
+                <ImageBrush ImageSource="Images/4/Dog.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="d3" Visibility="Hidden">
@@ -257,126 +257,126 @@
 
         <Grid Name="g1" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Cat.jpg"/>
+                <ImageBrush ImageSource="Images/7/Cat.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Dogs.jpg"/>
+                <ImageBrush ImageSource="Images/7/Dog.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g3" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Fox.jpg"/>
+                <ImageBrush ImageSource="Images/7/Fox.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g4" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Horse.jpg"/>
+                <ImageBrush ImageSource="Images/7/Horse.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g5" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Lion.jpg"/>
+                <ImageBrush ImageSource="Images/7/Lion.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g6" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Monkey.jpg"/>
+                <ImageBrush ImageSource="Images/7/Monkey.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="g7" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Panda.jpg"/>
+                <ImageBrush ImageSource="Images/7/Panda.png"/>
             </Grid.Background>
         </Grid>
 
         <Grid Name="h1" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/camel.jpg"/>
+                <ImageBrush ImageSource="Images/8/camel.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/crocodile.jpg"/>
+                <ImageBrush ImageSource="Images/8/crocodile.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h3" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/elephant.jpg"/>
+                <ImageBrush ImageSource="Images/8/elephant.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h4" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/giraffe.jpg"/>
+                <ImageBrush ImageSource="Images/8/giraffe.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h5" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/gorilla.jpg"/>
+                <ImageBrush ImageSource="Images/8/gorilla.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h6" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/snake.jpg"/>
+                <ImageBrush ImageSource="Images/8/snake.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="h7" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/8/Zebra.jpg"/>
+                <ImageBrush ImageSource="Images/8/Zebra.png"/>
             </Grid.Background>
         </Grid>
 
         <Grid Name="i1" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/chimpanzee.jpg"/>
+                <ImageBrush ImageSource="Images/9/chimpanzee.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/emu.jpg"/>
+                <ImageBrush ImageSource="Images/9/emu.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i3" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/hedgehog.jpg"/>
+                <ImageBrush ImageSource="Images/9/hedgehog.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i4" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/lemur.jpg"/>
+                <ImageBrush ImageSource="Images/9/lemur.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i5" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/leopard.jpg"/>
+                <ImageBrush ImageSource="Images/9/leopard.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i6" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/otter.jpg"/>
+                <ImageBrush ImageSource="Images/9/otter.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i7" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/toucan.jpg"/>
+                <ImageBrush ImageSource="Images/9/toucan.png"/>
             </Grid.Background>
         </Grid>
         <Grid Name="i8" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/9/turtle.jpg"/>
+                <ImageBrush ImageSource="Images/9/turtle.png"/>
             </Grid.Background>
         </Grid>
 
         <Grid Name="star1" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/score1-01.png"/>
+                <ImageBrush ImageSource="Images/score1.png"/>
             </Grid.Background>
             <Label x:Name="lblScore1" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
         </Grid>
         <Grid Name="star2" Visibility="Hidden">
             <Grid.Background>
-                <ImageBrush ImageSource="Images/score2-01.png"/>
+                <ImageBrush ImageSource="Images/score2.png"/>
             </Grid.Background>
             <Label x:Name="lblScore2" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
         </Grid>
@@ -401,5 +401,6 @@
                 <ImageBrush ImageSource="Images/exit.png"/>
             </Grid.Background>
         </Grid>
+        
     </Grid>
 </Window>

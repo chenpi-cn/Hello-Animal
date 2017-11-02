@@ -124,6 +124,13 @@ namespace Hello.v2
         {
             const double ConfidenceThreshold = 0;
 
+            /*if (Mainmenu.Visibility == Visibility.Hidden || Level.Visibility == Visibility.Hidden ||
+                star1.Visibility == Visibility.Hidden || star2.Visibility == Visibility.Hidden ||
+                star3.Visibility == Visibility.Hidden)
+                pause.Visibility = Visibility.Visible;
+            else
+                pause.Visibility = Visibility.Hidden;*/
+
             ClearRecognitionHighlights();
             if (e.Result.Confidence >= ConfidenceThreshold)
             {
@@ -165,14 +172,12 @@ namespace Hello.v2
                             foreach (Grid g in container.Children)
                                 g.Visibility = Visibility.Hidden;
                             Mainmenu.Visibility = Visibility.Visible;
-                            score = 0;
-                            used.Clear();
                         }
                         ClearRecognitionHighlights();
                         break;
-                    //case "CLOSE":
+                    case "CLOSE":
                     case "EXIT":
-                        if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible || Mainmenu.Visibility == Visibility.Visible)
+                        if (star1.Visibility == Visibility.Visible || star2.Visibility == Visibility.Visible || star3.Visibility == Visibility.Visible || pausemenu.Visibility == Visibility.Visible)
                             exitprompt.Visibility = Visibility.Visible;
                         ClearRecognitionHighlights();
                         break;
@@ -194,23 +199,15 @@ namespace Hello.v2
                             Help.Visibility = Visibility.Visible;
                             Mainmenu.Visibility = Visibility.Hidden;
                         }
-                        ClearRecognitionHighlights();
                         break;
 
                     case "PAUSE":
-                        if (pause.Visibility == Visibility.Visible)
+                        if (Mainmenu.Visibility == Visibility.Hidden && Level.Visibility == Visibility.Hidden &&
+                star1.Visibility == Visibility.Hidden && star2.Visibility == Visibility.Hidden &&
+                star3.Visibility == Visibility.Hidden)
                         {
                             pausemenu.Visibility = Visibility.Visible;
                             pause.Visibility = Visibility.Hidden;
-                        }
-                        ClearRecognitionHighlights();
-                        break;
-
-                    case "RESUME":
-                        if (pausemenu.Visibility == Visibility.Visible)
-                        {
-                            pausemenu.Visibility = Visibility.Hidden;
-                            pause.Visibility = Visibility.Visible;
                         }
                         ClearRecognitionHighlights();
                         break;
@@ -224,7 +221,7 @@ namespace Hello.v2
                             seed = r.Next(0, 7);
                             used.Add(seed);
                             getAnimal("A");
-                        }                        
+                        }
                         ClearRecognitionHighlights();
                         break;
                     case "FOUR":
@@ -250,7 +247,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "CAT":
-                        if ((a1.Visibility == Visibility.Visible || d1.Visibility == Visibility.Visible || g1.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a1.Visibility == Visibility.Visible || d1.Visibility == Visibility.Visible || g1.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -263,10 +260,9 @@ namespace Hello.v2
                         }
                         if (used.Count == 7)
                             getScore();
-                        ClearRecognitionHighlights();
                         break;
                     case "DOG":
-                        if ((a2.Visibility == Visibility.Visible || d2.Visibility == Visibility.Visible || g2.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a2.Visibility == Visibility.Visible || d2.Visibility == Visibility.Visible || g2.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -282,7 +278,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "FOX":
-                        if ((a3.Visibility == Visibility.Visible || d3.Visibility == Visibility.Visible || g3.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a3.Visibility == Visibility.Visible || d3.Visibility == Visibility.Visible || g3.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -298,7 +294,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "HORSE":
-                        if ((a4.Visibility == Visibility.Visible || d4.Visibility == Visibility.Visible || g4.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a4.Visibility == Visibility.Visible || d4.Visibility == Visibility.Visible || g4.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -307,14 +303,14 @@ namespace Hello.v2
                             else if (d4.Visibility == Visibility.Visible)
                                 getAnimal("D");
                             else if (g4.Visibility == Visibility.Visible)
-                                getAnimal("G");
+                                getAnimal("A");
                         }
                         if (used.Count == 7)
                             getScore();
                         ClearRecognitionHighlights();
                         break;
                     case "LION":
-                        if ((a5.Visibility == Visibility.Visible || d5.Visibility == Visibility.Visible || g5.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a5.Visibility == Visibility.Visible || d5.Visibility == Visibility.Visible || g5.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -330,23 +326,23 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "MONKEY":
-                        if ((a6.Visibility == Visibility.Visible || d6.Visibility == Visibility.Visible || g6.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a6.Visibility == Visibility.Visible || d6.Visibility == Visibility.Visible || g6.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
                             if (a6.Visibility == Visibility.Visible)
                                 getAnimal("A");
                             else if (d6.Visibility == Visibility.Visible)
-                                getAnimal("D");
+                                getAnimal("A");
                             else if (g6.Visibility == Visibility.Visible)
-                                getAnimal("G");
+                                getAnimal("A");
                         }
                         if (used.Count == 7)
                             getScore();
                         ClearRecognitionHighlights();
                         break;
                     case "PANDA":
-                        if ((a7.Visibility == Visibility.Visible || d7.Visibility == Visibility.Visible || g7.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (a7.Visibility == Visibility.Visible || d7.Visibility == Visibility.Visible || g7.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -372,7 +368,6 @@ namespace Hello.v2
                             used.Add(seed);
                             getAnimal("B");
                         }
-                        
                         ClearRecognitionHighlights();
                         break;
                     case "FIVE":
@@ -395,11 +390,10 @@ namespace Hello.v2
                             used.Add(seed);
                             getAnimal("H");
                         }
-                        
                         ClearRecognitionHighlights();
                         break;
                     case "CAMEL":
-                        if ((b1.Visibility == Visibility.Visible || e1.Visibility == Visibility.Visible || h1.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b1.Visibility == Visibility.Visible || e1.Visibility == Visibility.Visible || h1.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -415,7 +409,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "CROCODILE":
-                        if ((b2.Visibility == Visibility.Visible || e2.Visibility == Visibility.Visible || h2.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b2.Visibility == Visibility.Visible || e2.Visibility == Visibility.Visible || h2.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -431,7 +425,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "ELEPHANT":
-                        if ((b3.Visibility == Visibility.Visible || e3.Visibility == Visibility.Visible || h3.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b3.Visibility == Visibility.Visible || e3.Visibility == Visibility.Visible || h3.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -447,7 +441,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "GIRAFFE":
-                        if ((b4.Visibility == Visibility.Visible || e4.Visibility == Visibility.Visible || h4.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b4.Visibility == Visibility.Visible || e4.Visibility == Visibility.Visible || h4.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -463,7 +457,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "GORILLA":
-                        if ((b5.Visibility == Visibility.Visible || e5.Visibility == Visibility.Visible || h5.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b5.Visibility == Visibility.Visible || e5.Visibility == Visibility.Visible || h5.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -479,7 +473,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "SNAKE":
-                        if ((b6.Visibility == Visibility.Visible || e6.Visibility == Visibility.Visible || h6.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b6.Visibility == Visibility.Visible || e6.Visibility == Visibility.Visible || h6.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -496,7 +490,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "ZEBRA":
-                        if ((b7.Visibility == Visibility.Visible || e7.Visibility == Visibility.Visible || h7.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (b7.Visibility == Visibility.Visible || e7.Visibility == Visibility.Visible || h7.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(7);
@@ -520,9 +514,14 @@ namespace Hello.v2
 
                             seed = r.Next(0, 8);
                             used.Add(seed);
-                            getAnimal("C");
+                            foreach (Grid g in container.Children)
+                            {
+                                if (RNGpool_C[seed] == g.Name)
+                                    g.Visibility = Visibility.Visible;
+                                else if (RNGpool_C[seed] != g.Name)
+                                    g.Visibility = Visibility.Hidden;
+                            }
                         }
-                        
                         ClearRecognitionHighlights();
                         break;
                     case "SIX":
@@ -532,9 +531,14 @@ namespace Hello.v2
 
                             seed = r.Next(0, 8);
                             used.Add(seed);
-                            getAnimal("F");
+                            foreach (Grid g in container.Children)
+                            {
+                                if (RNGpool_F[seed] == g.Name)
+                                    g.Visibility = Visibility.Visible;
+                                else if (RNGpool_F[seed] != g.Name)
+                                    g.Visibility = Visibility.Hidden;
+                            }
                         }
-                        
                         ClearRecognitionHighlights();
                         break;
                     case "NINE":
@@ -544,12 +548,18 @@ namespace Hello.v2
 
                             seed = r.Next(0, 8);
                             used.Add(seed);
-                            getAnimal("I");
+                            foreach (Grid g in container.Children)
+                            {
+                                if (RNGpool_I[seed] == g.Name)
+                                    g.Visibility = Visibility.Visible;
+                                else if (RNGpool_I[seed] != g.Name)
+                                    g.Visibility = Visibility.Hidden;
+                            }
                         }
                         ClearRecognitionHighlights();
                         break;
                     case "CHIMPANZEE":
-                        if ((c1.Visibility == Visibility.Visible || f1.Visibility == Visibility.Visible || i1.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c1.Visibility == Visibility.Visible || f1.Visibility == Visibility.Visible || i1.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -565,7 +575,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "EMU":
-                        if ((c2.Visibility == Visibility.Visible || f2.Visibility == Visibility.Visible || i2.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c2.Visibility == Visibility.Visible || f2.Visibility == Visibility.Visible || i2.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -581,7 +591,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "HEDGEHOG":
-                        if ((c3.Visibility == Visibility.Visible || f3.Visibility == Visibility.Visible || i3.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c3.Visibility == Visibility.Visible || f3.Visibility == Visibility.Visible || i3.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -597,7 +607,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "LEMUR":
-                        if ((c4.Visibility == Visibility.Visible || f4.Visibility == Visibility.Visible || i4.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c4.Visibility == Visibility.Visible || f4.Visibility == Visibility.Visible || i4.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -613,7 +623,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "LEOPARD":
-                        if ((c5.Visibility == Visibility.Visible || f5.Visibility == Visibility.Visible || i5.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c5.Visibility == Visibility.Visible || f5.Visibility == Visibility.Visible || i5.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -629,7 +639,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "OTTER":
-                        if ((c6.Visibility == Visibility.Visible || f6.Visibility == Visibility.Visible || i6.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c6.Visibility == Visibility.Visible || f6.Visibility == Visibility.Visible || i6.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -645,7 +655,7 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "TOUCAN":
-                        if ((c7.Visibility == Visibility.Visible || f7.Visibility == Visibility.Visible || i7.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c7.Visibility == Visibility.Visible || f7.Visibility == Visibility.Visible || i7.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
@@ -661,16 +671,40 @@ namespace Hello.v2
                         ClearRecognitionHighlights();
                         break;
                     case "TURTLE":
-                        if ((c8.Visibility == Visibility.Visible || f8.Visibility == Visibility.Visible || i8.Visibility == Visibility.Visible) && pausemenu.Visibility == Visibility.Hidden)
+                        if (c8.Visibility == Visibility.Visible || f8.Visibility == Visibility.Visible || i8.Visibility == Visibility.Visible)
                         {
                             score += (int)(e.Result.Confidence * 1000);
                             seed = RNG(8);
                             if (c8.Visibility == Visibility.Visible)
-                                getAnimal("C");
+                            {
+                                foreach (Grid g in container.Children)
+                                {
+                                    if (RNGpool_C[seed] == g.Name)
+                                        g.Visibility = Visibility.Visible;
+                                    else if (RNGpool_C[seed] != g.Name)
+                                        g.Visibility = Visibility.Hidden;
+                                }
+                            }
                             else if (f8.Visibility == Visibility.Visible)
-                                getAnimal("F");
+                            {
+                                foreach (Grid g in container.Children)
+                                {
+                                    if (RNGpool_F[seed] == g.Name)
+                                        g.Visibility = Visibility.Visible;
+                                    else if (RNGpool_F[seed] != g.Name)
+                                        g.Visibility = Visibility.Hidden;
+                                }
+                            }
                             else if (i8.Visibility == Visibility.Visible)
-                                getAnimal("I");
+                            {
+                                foreach (Grid g in container.Children)
+                                {
+                                    if (RNGpool_I[seed] == g.Name)
+                                        g.Visibility = Visibility.Visible;
+                                    else if (RNGpool_I[seed] != g.Name)
+                                        g.Visibility = Visibility.Hidden;
+                                }
+                            }
                         }
                         if (used.Count == 8)
                             getScore();
@@ -818,12 +852,10 @@ namespace Hello.v2
                         g.Visibility = Visibility.Hidden;
                 }
             }
-            showPause();
         }
 
         private void getScore()
         {
-            hidePause();
             foreach (Grid g in container.Children)
                 g.Visibility = Visibility.Hidden;
             if (score < 1500)
@@ -832,16 +864,6 @@ namespace Hello.v2
                 star2.Visibility = Visibility.Visible;
             else
                 star3.Visibility = Visibility.Visible;
-        }
-
-        private void showPause()
-        {
-            pause.Visibility = Visibility.Visible;
-        }
-
-        private void hidePause()
-        {
-            pause.Visibility = Visibility.Hidden;
         }
 
         private void SpeechRejected(object sender, SpeechRecognitionRejectedEventArgs e)

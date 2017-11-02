@@ -59,32 +59,7 @@ namespace Hello.v2.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;grammar version=&quot;1.0&quot; xml:lang=&quot;en-US&quot; root=&quot;rootRule&quot; tag-format=&quot;semantics/1.0-literals&quot;
-        /// xmlns=&quot;http://www.w3.org/2001/06/grammar&quot;&gt;
-        ///  &lt;rule id=&quot;rootRule&quot;&gt;
-        ///    &lt;one-of&gt;
-        ///      &lt;item&gt;
-        ///        &lt;tag&gt;CAT&lt;/tag&gt;
-        ///        &lt;one-of&gt;
-        ///          &lt;item&gt;cat&lt;/item&gt;
-        ///        &lt;/one-of&gt;
-        ///      &lt;/item&gt;
-        ///      
-        ///    &lt;item&gt;
-        ///        &lt;tag&gt;DOG&lt;/tag&gt;
-        ///        &lt;one-of&gt;
-        ///          &lt;item&gt;dog&lt;/item&gt;
-        ///          &lt;item&gt;dogs&lt;/item&gt;
-        ///        &lt;/one-of&gt;
-        ///      &lt;/item&gt;
-        ///    
-        ///    &lt;item&gt;
-        ///        &lt;tag&gt;FOX&lt;/tag&gt;
-        ///        &lt;one-of&gt;
-        ///      [rest of string was truncated]&quot;;.
-        /// </summary>
+
         internal static string SpeechGrammar {
             get {
                 return ResourceManager.GetString("SpeechGrammar", resourceCulture);

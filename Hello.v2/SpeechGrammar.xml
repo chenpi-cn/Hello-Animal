@@ -27,10 +27,8 @@
     <item>
         <tag>HORSE</tag>
         <one-of>
-          <item>hoarse</item>
           <item>horse</item>
           <item>horses</item>
-          <item>hose</item>
         </one-of>
       </item>
     
@@ -167,7 +165,6 @@
         <one-of>
           <item>star</item>
           <item>start</item>
-          <item>stat</item>
         </one-of>
       </item>
     
@@ -253,10 +250,7 @@
     <item>
         <tag>RESUME</tag>
         <one-of>
-          <item>presume</item>
-          <item>pressure</item>
           <item>resume</item>
-          <item>continue</item>
         </one-of>
       </item>
       
