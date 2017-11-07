@@ -7,425 +7,46 @@
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Hello.v2.MainWindow"
         mc:Ignorable="d" WindowState="Maximized" ResizeMode="NoResize" WindowStyle="None"
         Title="Hello Animal" Height="768" Width="1366" Loaded="WindowLoaded" Closing="WindowClosing">
-    <Grid Name="container">
-        <Grid Name="Mainmenu" Visibility="Visible">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images\Mainmenu-01.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Mainmenu_Start" Content="" HorizontalAlignment="Left" Height="166" Margin="398,470,0,0" VerticalAlignment="Top" Width="508" MouseDown="Frame_Mainmenu_Start_MouseDown"/>
-            <Frame x:Name="Frame_Mainmenu_Credit" Content="" HorizontalAlignment="Left" Height="57" Margin="539,664,0,0" VerticalAlignment="Top" Width="241" MouseDown="Frame_Mainmenu_Credit_MouseDown"/>
-            <Frame x:Name="Frame_Mainmenu_Help" Content="" HorizontalAlignment="Left" Height="63" Margin="1183,695,0,0" VerticalAlignment="Top" Width="152" MouseDown="Frame_Mainmenu_Help_MouseDown"/>
-        </Grid>
-        <Grid Name="Help" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images\help-01.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Help_Back" Content="" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="196" MouseDown="Frame_Help_Back_MouseDown"/>
-        </Grid>
-        <Grid Name="Level" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/stage.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Select_1" Content="" HorizontalAlignment="Left" Height="51" Margin="326,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_1_MouseDown"/>
-            <Frame x:Name="Frame_Select_2" Content="" HorizontalAlignment="Left" Height="51" Margin="644,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_2_MouseDown"/>
-            <Frame x:Name="Frame_Select_3" Content="" HorizontalAlignment="Left" Height="51" Margin="959,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_3_MouseDown"/>
-            <Frame x:Name="Frame_Select_4" Content="" HorizontalAlignment="Left" Height="51" Margin="326,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_4_MouseDown"/>
-            <Frame x:Name="Frame_Select_5" Content="" HorizontalAlignment="Left" Height="51" Margin="644,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_5_MouseDown"/>
-            <Frame x:Name="Frame_Select_6" Content="" HorizontalAlignment="Left" Height="51" Margin="959,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_6_MouseDown"/>
-            <Frame x:Name="Frame_Select_7" Content="" HorizontalAlignment="Left" Height="51" Margin="326,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_7_MouseDown"/>
-            <Frame x:Name="Frame_Select_8" Content="" HorizontalAlignment="Left" Height="51" Margin="644,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_8_MouseDown"/>
-            <Frame x:Name="Frame_Select_9" Content="" HorizontalAlignment="Left" Height="51" Margin="959,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_9_MouseDown"/>
-        </Grid>
-        <Grid Name="Credits" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/credit-01.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Credit_Back" Content="" HorizontalAlignment="Left" Height="68" Margin="10,10,0,0" VerticalAlignment="Top" Width="202" MouseDown="Frame_Credit_Back_MouseDown"/>
-        </Grid>
-
-        <Grid Name="a1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Cat.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Dogs.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Fox.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Horse.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Lion.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Monkey.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="a7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/1/Panda.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="b1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/camel.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/Crocodile.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/elephant.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/giraffe.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/gorilla.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/snake.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="b7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/2/Zebra.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="c1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/chimpanzee.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/emu.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/hedgehog.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/lemur.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/leopard.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/otter.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/toucan.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="c8" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/3/turtle.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="d1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/cat.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Dogs.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Fox.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Horse.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Lion.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Monkey.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="d7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/4/Panda.png"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="e1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/camel.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/crocodile.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/elephant.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/giraffe.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/gorilla.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/snake.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="e7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/5/Zebra.png"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="f1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/chimpanzee.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/emu.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/hedgehog.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/lemur.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/leopard.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/otter.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/toucan.png"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="f8" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/6/turtle.png"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="g1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Cat.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Dogs.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Fox.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Horse.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Lion.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Monkey.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="g7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/7/Panda.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="h1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/camel.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/crocodile.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/elephant.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/giraffe.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/gorilla.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/snake.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="h7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/8/Zebra.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="i1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/chimpanzee.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/emu.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/hedgehog.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i4" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/lemur.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i5" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/leopard.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i6" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/otter.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i7" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/toucan.jpg"/>
-            </Grid.Background>
-        </Grid>
-        <Grid Name="i8" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/9/turtle.jpg"/>
-            </Grid.Background>
-        </Grid>
-
-        <Grid Name="star1" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/score1-01.png"/>
-            </Grid.Background>
-            <Label x:Name="lblScore1" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
-            <Button x:Name="Star1_Menu" Content="Menu" HorizontalAlignment="Left" Margin="349,507,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star1_Menu_MouseDown"/>
-            <Button x:Name="Star1_Exit" Content="Exit" HorizontalAlignment="Left" Margin="718,507,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" MouseDown="Star1_Exit_MouseDown"/>
-        </Grid>
-        <Grid Name="star2" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/score2-01.png"/>
-            </Grid.Background>
-            <Label x:Name="lblScore2" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
-            <Button x:Name="Star2_Exit" Content="Exit" HorizontalAlignment="Left" Margin="713,511,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star2_Exit_MouseDown"/>
-            <Button x:Name="Star2_Menu" Content="Menu" HorizontalAlignment="Left" Margin="346,511,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star2_Menu_MouseDown"/>
-        </Grid>
-        <Grid Name="star3" Visibility="Hidden">
-            <Grid.Background>
-                <ImageBrush ImageSource="Images/score-01.png"/>
-            </Grid.Background>
-            <Label x:Name="lblScore3" Content="Score: " HorizontalAlignment="Left" Margin="497,396,0,0" VerticalAlignment="Top" FontFamily="Segoe Print" FontSize="60" FontWeight="Bold" Foreground="#FF3A1F10" Visibility="Hidden"/>
-            <Button x:Name="Star3_Menu" Content="Menu" HorizontalAlignment="Left" Margin="347,511,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star3_Menu_MouseDown"/>
-            <Button x:Name="Star3_Exit" Content="Exit" HorizontalAlignment="Left" Margin="713,511,0,0" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star3_Exit_MouseDown"/>
-        </Grid>
-        <Grid Name="pause" Visibility="Hidden" Width="143" Height="57" Margin="10,10,1213,701">
-            <Grid.Background>
+    <Canvas Name="container">
+        <Canvas.Background>
+            <ImageBrush ImageSource="Images\mainmenu-01.png"/>
+        </Canvas.Background>
+        <Frame x:Name="Frame_Mainmenu_Start" Content="" HorizontalAlignment="Left" Height="166" Margin="398,470,0,0" VerticalAlignment="Top" Width="508" MouseDown="Frame_Mainmenu_Start_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave"/>
+        <Frame x:Name="Frame_Mainmenu_Credit" Content="" HorizontalAlignment="Left" Height="57" Margin="539,664,0,0" VerticalAlignment="Top" Width="241" MouseDown="Frame_Mainmenu_Credit_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave"/>
+        <Frame x:Name="Frame_Mainmenu_Help" Content="" HorizontalAlignment="Left" Height="63" Margin="1183,695,0,0" VerticalAlignment="Top" Width="152" MouseDown="Frame_Mainmenu_Help_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave"/>
+        <Frame x:Name="Frame_CreditHelp_Back" Content="" HorizontalAlignment="Left" Height="66" Margin="10,10,0,0" VerticalAlignment="Top" Width="196" MouseDown="Frame_CreditHelp_Back_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_1" Content="" HorizontalAlignment="Left" Height="51" Margin="326,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_1_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_2" Content="" HorizontalAlignment="Left" Height="51" Margin="644,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_2_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_3" Content="" HorizontalAlignment="Left" Height="51" Margin="959,317,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_3_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_4" Content="" HorizontalAlignment="Left" Height="51" Margin="326,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_4_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_5" Content="" HorizontalAlignment="Left" Height="51" Margin="644,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_5_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_6" Content="" HorizontalAlignment="Left" Height="51" Margin="959,475,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_6_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_7" Content="" HorizontalAlignment="Left" Height="51" Margin="326,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_7_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_8" Content="" HorizontalAlignment="Left" Height="51" Margin="644,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_8_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Select_9" Content="" HorizontalAlignment="Left" Height="51" Margin="959,615,0,0" VerticalAlignment="Top" Width="265" MouseDown="Frame_Select_9_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden"/>
+        <Frame x:Name="Frame_Pause" Content="" HorizontalAlignment="Left" Height="54" VerticalAlignment="Top" Width="145" MouseDown="Frame_Pause_MouseDown" Canvas.Top="6" Canvas.Left="6" Visibility="Hidden">
+            <Frame.Background>
                 <ImageBrush ImageSource="Images/pause.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Pause" Content="" HorizontalAlignment="Left" Height="54" Margin="0,0,-2,0" VerticalAlignment="Top" Width="145" MouseDown="Frame_Pause_MouseDown"/>
-        </Grid>
-        <Grid Name="pausemenu" Visibility="Hidden" Width="322" Height="344">
-            <Grid.Background>
+            </Frame.Background>
+        </Frame>
+
+        <Frame x:Name="Frame_PauseMenu" Content="" HorizontalAlignment="Left" Height="325" VerticalAlignment="Top" Width="340" Canvas.Left="472" Canvas.Top="242" Visibility="Hidden">
+            <Frame.Background>
                 <ImageBrush ImageSource="Images/pausemenu.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_Pause_Resume" Content="" HorizontalAlignment="Left" Height="52" Margin="96,93,0,0" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Resume_MouseDown"/>
-            <Frame x:Name="Frame_Pause_Menu" Content="" HorizontalAlignment="Left" Height="47" Margin="96,170,0,0" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Menu_MouseDown"/>
-            <Frame x:Name="Frame_Pause_Exit" Content="" HorizontalAlignment="Left" Height="47" Margin="96,242,0,0" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Exit_MouseDown"/>
-        </Grid>
-        <Grid Name="exitprompt" Visibility="Hidden" Width="303" Height="188">
-            <Grid.Background>
+            </Frame.Background>
+        </Frame>
+        <Frame x:Name="Frame_Pause_Resume" Content="" HorizontalAlignment="Left" Height="52" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Resume_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden" Canvas.Left="576" Canvas.Top="329"/>
+        <Frame x:Name="Frame_Pause_Menu" Content="" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Menu_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden" Canvas.Left="576" Canvas.Top="401"/>
+        <Frame x:Name="Frame_Pause_Exit" Content="" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="141" MouseDown="Frame_Pause_Exit_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Visibility="Hidden" Canvas.Left="576" Canvas.Top="468"/>
+        <Frame x:Name="Frame_ExitPrompt" Content="" Height="250" Canvas.Left="473" Canvas.Top="295" Width="383" Visibility="Hidden">
+            <Frame.Background>
                 <ImageBrush ImageSource="Images/exit.png"/>
-            </Grid.Background>
-            <Frame x:Name="Frame_ExitPrompt_Yes" Content="" HorizontalAlignment="Left" Height="29" Margin="54,143,0,0" VerticalAlignment="Top" Width="72" MouseDown="Frame_ExitPrompt_Yes_MouseDown"/>
-            <Frame x:Name="Frame_ExitPrompt_No" Content="" HorizontalAlignment="Left" Height="30" Margin="180,148,0,0" VerticalAlignment="Top" Width="72" MouseDown="Frame_ExitPrompt_No_MouseDown"/>
-        </Grid>
-    </Grid>
+            </Frame.Background>
+        </Frame>
+        <Frame x:Name="Frame_ExitPrompt_Yes" Content="" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="100" MouseDown="Frame_ExitPrompt_Yes_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Canvas.Left="538" Canvas.Top="486" Visibility="Hidden"/>
+        <Frame x:Name="Frame_ExitPrompt_No" Content="" HorizontalAlignment="Left" Height="41" VerticalAlignment="Top" Width="100" MouseDown="Frame_Mainmenu_Start_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Canvas.Left="697" Canvas.Top="488" Visibility="Hidden"/>
+        <Button x:Name="Star3_Menu" Content="Menu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star3_Menu_MouseDown" Visibility="Hidden" Canvas.Left="343" Canvas.Top="499"/>
+        <Button x:Name="Star3_Exit" Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="301" Height="77" FontSize="36" FontWeight="Medium" BorderBrush="#FFDC8E37" Background="#FF482C15" Foreground="#FFA68869" FontFamily="Segoe Print" VerticalContentAlignment="Top" HorizontalContentAlignment="Center" OpacityMask="Black" MouseDown="Star3_Exit_MouseDown" Visibility="Hidden" Canvas.Left="697" Canvas.Top="499"/>
+        <Frame x:Name="Frame_Killswitch" Content="" HorizontalAlignment="Left" Height="46" VerticalAlignment="Top" Width="83" MouseDown="Frame_Killswitch_MouseDown" MouseEnter="Frame_MouseEnter" MouseLeave="Frame_MouseLeave" Canvas.Left="1283"/>
+    </Canvas>
 </Window>
